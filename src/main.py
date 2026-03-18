@@ -1,8 +1,9 @@
-from textnode import TextNode
-
+from textnode import TextNode, TextType
 def main(): 
-    dummyTN = TextNode("Hello World", "link", "https://www.boot.dev")
+    dummyTN = TextNode("Hello World", TextType.LINK, "https://www.boot.dev")
     print(dummyTN)
 
 
-main()
+
+if __name__ == "__main__": 
+    main()
