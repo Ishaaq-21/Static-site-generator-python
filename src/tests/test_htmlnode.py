@@ -1,9 +1,9 @@
 import unittest
 
-from src.htmlnode import HTMLNode
+from src.htmlnode import HTMLNode, LeafNode
 
 
-class TestTextNode(unittest.TestCase):
+class TestHTMLNode(unittest.TestCase):
     def test_eq(self):
         node = HTMLNode("p", "This is a p tag",None,  {"class": "color: red; font-size:20px; padding:5px; border: 1px black solid;"})
         node2 = HTMLNode("p", "This is a p tag",None,  {"class": "color: red; font-size:20px; padding:5px; border: 1px black solid;"})
@@ -15,6 +15,12 @@ class TestTextNode(unittest.TestCase):
         linkNode = HTMLNode("link", "This is a link tag", None, {"class": "color: green; font-size: 22px;", "href": "www.google.com"})
         linkNode2 = HTMLNode("link", "This is a link tag", None, {"class": "color: green; font-size: 22px;", "href": "www.facebook.com"})
         self.assertNotEqual(linkNode, linkNode2)
+
+class TestLeafNode(unittest.TestCase): 
+    def test_eq(self): 
+        node = LeafNode("p", "Hello, world!")
+        self.assertEqual(node.to_html(), "<p>Hello, world!</p>")
+
 
 if __name__ == "__main__":
     unittest.main()
